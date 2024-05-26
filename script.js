@@ -75,8 +75,13 @@ document.addEventListener('click', (e)=>{
             document.getElementById('modal').classList.remove('hidden')
     }
     if (e.target.classList.contains('form-btn') && e.target.id === 'form-btn'){
-        e.preventDefault()     
-        window.location.href = "./index2.html";
+        e.preventDefault()
+        const form = e.target.closest('form')
+        if (form.checkValidity()){
+            form.submit();
+            window.location.href = './index2.html'
+        }
+        
     }
 
 })
