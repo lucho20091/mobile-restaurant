@@ -14,51 +14,41 @@
         </div>
     </header>
     <main>
-        <div class="container">
-            <div class="flex-main">
-                <div class="left">
-                    <h1>🍕</h1>
-                <div>
-                    <h3>Pizza</h3>
-                    <p>Pepperoni, mushroom, mozarella</p>
-                    <p>$14</p>
-                </div>
-                </div>
-                <div class="right">
-                    <button>+</button>
-                </div>
+        <div class="container" id="container">
+        </div>
+        <div class="container2">
+        <div class="order hidden" id="order-div">
+            <h2>Your order</h2>
+            <div id="new-items">
+
             </div>
-            <div class="flex-main">
+            <!-- <div class="item">
                 <div class="left">
-                    <h1>🍕</h1>
-                <div>
-                    <h3>Pizza</h3>
-                    <p>Pepperoni, mushroom, mozarella</p>
-                    <p>$14</p>
+                    <h2>Pizza</h2>
+                    <button>remove</button>
                 </div>
-                </div>
-                <div class="right">
-                    <button>+</button>
-                </div>
+                <p>$14</p>
             </div>
-            <div class="flex-main">
+            <div class="item">
                 <div class="left">
-                    <h1>🍕</h1>
-                <div>
-                    <h3>Pizza</h3>
-                    <p>Pepperoni, mushroom, mozarella</p>
-                    <p>$14</p>
+                    <h2>Pizza</h2>
+                    <button>remove</button>
                 </div>
-                </div>
-                <div class="right">
-                    <button>+</button>
-                </div>
+                <p>$14</p>
+            </div> -->
+            <div class="total-price" id="total-price">
+                <h2>Total Price</h2>
+                <p>$20</p>
+            </div>
+            <div class="complete">
+                <button id="complete-order">Complete order</button>
             </div>
         </div>
+        </div>
     </main>
-    <div class="modal">
-        <div class="form">
-            <form action="">
+    <div class="modal hidden">
+        <div >
+            <form action="" class="form">
                 <h1>Enter Card Details</h1>
                 <input type="text" placeholder="Enter your name" required>
                 <input placeholder="Enter card number" type="tel" maxlength="19"

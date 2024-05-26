@@ -6,13 +6,14 @@ body {
     align-items: center;
     width: 100%;
     height: 100%;
-    gap: 65px;
+    gap: 40px;
 }
 /* Header */
 header{
     height: 167px;
     background-image: url('./media/header.jpeg') ;
     background-position: 50% 60%;
+    user-select: none;
 }
 header .container{
     color: #FFF;
@@ -32,10 +33,22 @@ header h2{
     padding-left: 46px;
 }
 /* Main */
+main .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
 .flex-main{
     display: flex;
     align-items: center;
     justify-content: space-around;
+    border-bottom: 1px solid #757575;
+    width: 90%;
+}
+.flex-main:last-child{
+    margin-bottom: 20px;
 }
 .left{
     display: flex;
@@ -44,9 +57,12 @@ header h2{
 }
 .left h1{
     font-size: 5em;
+    margin: 0 0 20px;
+    text-align: left;
 }
-.left h1, .left h3, .left p{
+.left h3, .left p{
     margin: 0;
+    width: 250px;
 }
 .left p:nth-child(2){
     margin: 8px 0;
@@ -64,11 +80,41 @@ header h2{
 }
 .flex-main button:hover{
     cursor: pointer;
+    background: linear-gradient(45deg, #CA9CE1, #DF2935)
+}
+.container, .container2{
+    width: 600px;
 }
 
-
-.container{
-    width: 600px;
+/* order */
+.order{
+    width: 90%;
+    margin: 0 auto;
+}
+.item{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.item button{
+    border: none;
+}
+.total-price{
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid black;
+}
+.complete button{
+    width: 100%;
+    padding: 20px 20px;
+    border: 2px solid black;
+    background: #16DB99;
+    color: white;
+    font-size: 20px
+}
+.complete button:hover{
+    cursor: pointer;
 }
 /* Modal */
 .modal{
@@ -78,7 +124,7 @@ header h2{
     right: 0;
     bottom: 0;
     margin: auto;
-    width: 520px;
+    width: 500px;
     height: 440px;
     background: #FFF;
     border-radius: 5px;
@@ -87,25 +133,36 @@ header h2{
 .form{
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 440px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 10px;
 }
 .form h1{
-    margin: 0 0 20px;
-    font-weight: bold;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 900;
     text-align: center;
+    margin: 0;
 }
 .modal input{
     width: 350px;
-    margin: 0 auto;
     padding: 20px 20px;
-    display: block;
     font-size: 20px;
     font-weight: 400;
     color: #757575
 }
-.modal input:nth-child(3){
-    margin: 10px 0;
+.form button{
+    width: 394px;
+    padding: 20px 20px;
+    border: 2px solid #757575;
+    background: #16DB99;
+    color: white;
+    font-size: 20px
+}
+.form button:hover{
+    cursor: pointer;
+}
+.hidden{
+    display: none;
 }
