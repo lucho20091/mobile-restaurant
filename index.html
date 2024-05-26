@@ -41,20 +41,20 @@
                 <p>$20</p>
             </div>
             <div class="complete">
-                <button id="complete-order">Complete order</button>
+                <button id="complete-order" class="complete-order">Complete order</button>
             </div>
         </div>
         </div>
     </main>
-    <div class="modal hidden">
+    <div class="modal hidden" id="modal">
         <div >
             <form action="" class="form">
                 <h1>Enter Card Details</h1>
-                <input type="text" placeholder="Enter your name" required>
-                <input placeholder="Enter card number" type="tel" maxlength="19"
+                <input type="text" placeholder="Enter your name" id="name-form"required>
+                <input placeholder="Enter card number" type="tel" maxlength="16"
                 autocomplete="cc-number" inputmode="numeric" required>
                 <input type="tel" maxlength="3" placeholder="Enter CVV" required>
-                <button id="form-btn">Pay</button>
+                <button id="form-btn" class="form-btn">Pay</button>
             </form>
         </div>
     </div>

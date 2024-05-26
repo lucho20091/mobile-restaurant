@@ -5,7 +5,7 @@ const totalPrice = document.getElementById('total-price')
 const order = document.getElementById('order-div')
 
 const renderItems = () => {
-    let html = menuArray.map((item)=>{
+    return menuArray.map((item)=>{
     return ` 
     <div class="flex-main">
         <div class="left">
@@ -17,66 +17,84 @@ const renderItems = () => {
         </div>
         </div>
         <div class="right">
-            <button id="${item.id}">+</button>
+            <button id="${item.id}"class="add-button">+</button>
         </div>
     </div>`
-    })
-    return html
+    }).join('')
+
 }
 
 container.innerHTML = renderItems()
+let itemsArrId = []
 let itemsArrPrice = []
-let itemsArrName = []
-let itemsObj = {}
 
 document.addEventListener('click', (e)=>{
-    const BtnArr = ['0','1','2']
-    console.log(e.target.id)
-        menuArray.map((item) => {
-            if (e.target.id === `remove-${item.id}`){
-                item.score--
-                document.getElementById(`quantity-${item.id}`).innerText = `Quantity: ${item.score}`
+    console.log(e.target)
+    if (e.target.classList.contains('add-button')){
+    const itemId = e.target.id
+    const item = menuArray.find(item => item.id == itemId)
+    order.classList.remove('hidden')
+    if (!itemsArrId.includes(item.id)){
+        order.classList.remove('hidden')
+        itemsArrId.push(item.id)
+        item.score = 1
+        itemsArrPrice.push(item.price)
+        const newItem = document.createElement('div')
+        newItem.classList.add('item')
+        newItem.innerHTML = renderOrder(item)
+        newItems.appendChild(newItem)
+    } else {
+        item.score++
+        itemsArrPrice.push(item.price)
+        document.getElementById(`quantity-${item.id}`).innerText = `Quantity: ${item.score}`
+        document.getElementById(`price-${item.id}`).innerText = item.price * item.score
+    }
+    totalPrice.innerHTML = renderTotalAmount(itemsArrPrice)
+}
+    if (e.target.classList.contains('remove-btn')){
+        const itemId = e.target.dataset.remove
+        const item = menuArray.find(item => item.id == itemId)
+        if (item.score <= 1){
+            const itemElement = document.getElementById(`item-${item.id}`)
+            itemElement.remove()
+            let index = itemsArrId.indexOf(item.score)
+            itemsArrId.splice(index, 1)
+            if (itemsArrId.length === 0){
+                order.classList.add('hidden')
             }
-        })
-    
-
-    if (BtnArr.includes(e.target.id)){
-        menuArray.map((item, index) => {
-            if (item.id == e.target.id){
-                order.classList.remove('hidden')
-                itemsArrPrice.push(item.price)
-                if (!itemsArrName.includes(index)){
-                    itemsArrName.push(index)
-                    item.score++
-                    const newItem = document.createElement('div')
-                    newItem.classList.add('item')
-                    newItem.innerHTML = renderOrder(item)
-                    newItems.appendChild(newItem)
-                } else {
-                    document.getElementById(`quantity-${item.id}`).innerText = `Quantity: ${item.score++}`
-                    document.getElementById(`price-${item.id}`).innerText = item.price * (item.score-1)
-                }
-                totalPrice.innerHTML = renderTotalAmount(itemsArrPrice)
-            }
-        })
+        } else {
+            item.score--
+            let index = itemsArrPrice.indexOf(item.price)
+            itemsArrPrice.splice(index, 1)
+            document.getElementById(`quantity-${item.id}`).innerText = `Quantity: ${item.score}`
+            document.getElementById(`price-${item.id}`).innerText = item.price * item.score
+            totalPrice.innerHTML = renderTotalAmount(itemsArrPrice)
+        }
+    }
+    if (e.target.classList.contains('complete-order') && e.target.id === 'complete-order'){
+            document.getElementById('modal').classList.remove('hidden')
+    }
+    if (e.target.classList.contains('form-btn') && e.target.id === 'form-btn'){
+        e.preventDefault()     
+        window.location.href = "./index2.html";
     }
 
 })
 
-
 const renderOrder = (item) => {
-    return `        
+    return `
+    <div class="flex-order" id="item-${item.id}">        
     <div class="left">
         <h2>${item.name}</h2>
-        <button id="remove-${item.id}">remove</button>
-        <p id="quantity-${item.id}">Quantity: ${item.score++}</p>
+        <button id="remove-${item.id}" data-remove="${item.id}" class="remove-btn">remove</button>
+        <p id="quantity-${item.id}">Quantity: ${item.score}</p>
     </div>
     <p id="price-${item.id}">${item.price}</p>
-    `
+    </div>`
 }
 
 const renderTotalAmount = (arr) => {
-    const amount = arr.reduce((total, current)=> total + current)
+    const amount = arr.reduce((total, current)=> total + current, 0)
     return `
     <h2>Total Price</h2>
     <p>${amount}</p>

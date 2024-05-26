@@ -50,6 +50,11 @@ main .container{
 .flex-main:last-child{
     margin-bottom: 20px;
 }
+.flex-order{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
 .left{
     display: flex;
     justify-content: left;
@@ -90,6 +95,7 @@ main .container{
 .order{
     width: 90%;
     margin: 0 auto;
+    user-select: none;
 }
 .item{
     display: flex;
