@@ -39,6 +39,7 @@ main .container{
     justify-content: center;
     align-items: center;
     user-select: none;
+    
 }
 .flex-main{
     display: flex;
@@ -191,6 +192,9 @@ main .container{
     display: none;
 }
 @media (max-width: 767px){
+    body{
+        gap: 20px;
+    }
     .container, .container2{
         width: 100vw;
     }
@@ -236,5 +240,11 @@ main .container{
     }
     .form button{
         width: 85%;
+    }
+    .left p{
+        margin-bottom: 20px;
+    }
+    .left h3{
+        margin-top: 20px;
     }
 }
