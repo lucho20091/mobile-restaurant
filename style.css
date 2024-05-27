@@ -140,6 +140,20 @@ main .container{
     border-radius: 5px;
     box-shadow: 0 0 10px black;
 }
+.close-modal{
+    position: absolute;
+    top: 0;
+    right: 0;
+
+}
+.close-modal button{
+    background: transparent;
+    font-size: 20px;
+    border: none;
+}
+.close-modal button:hover{
+    cursor: pointer;
+}
 .form{
     display: flex;
     width: 100%;

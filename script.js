@@ -83,7 +83,9 @@ document.addEventListener('click', (e)=>{
         }
         
     }
-
+    if (e.target.id === 'close-modal'){
+        modal.classList.add('hidden')
+    }
 })
 
 const renderOrder = (item) => {
