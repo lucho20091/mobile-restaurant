@@ -196,7 +196,7 @@ main .container{
         gap: 20px;
     }
     .container, .container2{
-        width: 100vw;
+        width: 100%;
     }
     .flex-main{
         justify-content: space-around;
@@ -241,10 +241,6 @@ main .container{
     .form button{
         width: 85%;
     }
-    .left p{
-        margin-bottom: 20px;
-    }
-    .left h3{
-        margin-top: 20px;
-    }
+
+
 }
