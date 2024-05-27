@@ -47,7 +47,7 @@ document.addEventListener('click', (e)=>{
         item.score++
         itemsArrPrice.push(item.price)
         document.getElementById(`quantity-${item.id}`).innerText = `Quantity: ${item.score}`
-        document.getElementById(`price-${item.id}`).innerText = item.price * item.score
+        document.getElementById(`price-${item.id}`).innerText = `$${item.price * item.score}`
     }
     totalPrice.innerHTML = renderTotalAmount(itemsArrPrice)
 }
@@ -67,7 +67,7 @@ document.addEventListener('click', (e)=>{
             let index = itemsArrPrice.indexOf(item.price)
             itemsArrPrice.splice(index, 1)
             document.getElementById(`quantity-${item.id}`).innerText = `Quantity: ${item.score}`
-            document.getElementById(`price-${item.id}`).innerText = item.price * item.score
+            document.getElementById(`price-${item.id}`).innerText = `$${item.price * item.score}`
             totalPrice.innerHTML = renderTotalAmount(itemsArrPrice)
         }
     }
@@ -96,7 +96,7 @@ const renderOrder = (item) => {
         <button id="remove-${item.id}" data-remove="${item.id}" class="remove-btn">remove</button>
         <p id="quantity-${item.id}">Quantity: ${item.score}</p>
     </div>
-    <p id="price-${item.id}">${item.price}</p>
+    <p id="price-${item.id}">$${item.price}</p>
     </div>`
 }
 
@@ -104,6 +104,6 @@ const renderTotalAmount = (arr) => {
     const amount = arr.reduce((total, current)=> total + current, 0)
     return `
     <h2>Total Price</h2>
-    <p>${amount}</p>
+    <p>$${amount}</p>
     `
 }
