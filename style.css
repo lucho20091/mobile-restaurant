@@ -192,10 +192,10 @@ main .container{
 }
 @media (max-width: 767px){
     .container, .container2{
-        width: 100%;
+        width: 100vw;
     }
     .flex-main{
-        justify-content: center;
+        justify-content: space-around;
     }
     .left h1{
         font-size: 3em;
@@ -229,7 +229,7 @@ main .container{
     }
     .modal{
         width: 80%;
-        height: 60%;
+        height: fit-content;
     }
     .modal input{
         width: 70%;
