@@ -213,4 +213,14 @@ main .container{
         text-align: center;
         font-weight: 800;
     }
+    .modal{
+        width: 80%;
+        height: 60%;
+    }
+    .modal input{
+        width: 70%;
+    }
+    .form button{
+        width: 85%;
+    }
 }
