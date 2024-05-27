@@ -59,8 +59,11 @@ document.addEventListener('click', (e)=>{
             itemElement.remove()
             let index = itemsArrId.indexOf(item.score)
             itemsArrId.splice(index, 1)
+            let index2 = itemsArrPrice.indexOf(item.price)
+            itemsArrPrice.splice(index2, 1)
             if (itemsArrId.length === 0){
                 order.classList.add('hidden')
+                itemsArrPrice = []
             }
         } else {
             item.score--
@@ -70,6 +73,8 @@ document.addEventListener('click', (e)=>{
             document.getElementById(`price-${item.id}`).innerText = `$${item.price * item.score}`
             totalPrice.innerHTML = renderTotalAmount(itemsArrPrice)
         }
+        totalPrice.innerHTML = renderTotalAmount(itemsArrPrice)
+
     }
     if (e.target.classList.contains('complete-order') && e.target.id === 'complete-order'){
             document.getElementById('modal').classList.remove('hidden')
