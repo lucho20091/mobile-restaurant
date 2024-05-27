@@ -199,6 +199,7 @@ main .container{
         width: 100%;
     }
     .flex-main{
+        width: 95%;
         justify-content: space-around;
     }
     .left h1{
@@ -219,6 +220,9 @@ main .container{
     .complete button{
         border: none;
         border-radius: 10px;
+    }
+    .order{
+        width: 95%;
     }
     .flex-order{
         justify-content: space-between;
