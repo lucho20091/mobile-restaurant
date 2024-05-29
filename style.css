@@ -39,6 +39,7 @@ main .container{
     justify-content: center;
     align-items: center;
     user-select: none;
+    
 }
 .flex-main{
     display: flex;
@@ -50,6 +51,7 @@ main .container{
 .flex-main:last-child{
     margin-bottom: 20px;
 }
+
 .left{
     display: flex;
     justify-content: left;
@@ -90,6 +92,12 @@ main .container{
 .order{
     width: 90%;
     margin: 0 auto;
+    user-select: none;
+}
+.flex-order{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
 }
 .item{
     display: flex;
@@ -99,6 +107,9 @@ main .container{
 }
 .item button{
     border: none;
+}
+.item button:hover{
+    cursor: pointer;
 }
 .total-price{
     display: flex;
@@ -129,6 +140,20 @@ main .container{
     background: #FFF;
     border-radius: 5px;
     box-shadow: 0 0 10px black;
+}
+.close-modal{
+    position: absolute;
+    top: 0;
+    right: 0;
+
+}
+.close-modal button{
+    background: transparent;
+    font-size: 20px;
+    border: none;
+}
+.close-modal button:hover{
+    cursor: pointer;
 }
 .form{
     display: flex;
@@ -165,4 +190,61 @@ main .container{
 }
 .hidden{
     display: none;
+}
+@media (max-width: 767px){
+    body{
+        gap: 20px;
+    }
+    .container, .container2{
+        width: 100%;
+    }
+    .flex-main{
+        width: 95%;
+        justify-content: space-around;
+    }
+    .left h1{
+        font-size: 3em;
+        width: 80px;
+    }
+    .left h3, .left p{
+        width: 180px;
+    }
+    .flex-main button{
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+    }
+    h2{
+        font-size: 1em;
+    }
+    .complete button{
+        border: none;
+        border-radius: 10px;
+    }
+    .order{
+        width: 95%;
+    }
+    .flex-order{
+        justify-content: space-between;
+    }
+    .flex-order .left p{
+        width: auto;
+    }
+    .bold{
+        font-size: 1.2em;
+        text-align: center;
+        font-weight: 800;
+    }
+    .modal{
+        width: 80%;
+        height: fit-content;
+    }
+    .modal input{
+        width: 70%;
+    }
+    .form button{
+        width: 85%;
+    }
+
+
 }
